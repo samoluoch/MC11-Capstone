@@ -67,6 +67,8 @@ class Designs(models.Model):
     file_4 = models.FileField(upload_to='files/', blank=True)
     file_5 = models.FileField(upload_to='files/', blank=True)
     profile = models.ForeignKey(User)
+    cost = models.IntegerField(max_length =60, null=True)
+
 
 
 

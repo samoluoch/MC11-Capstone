@@ -7,10 +7,17 @@ from .models import Profile,Designs
 
 
 # Create your views here.
-def home(request):
-    # posts = Post.objects.all()
 
-    return render(request,'home.html')
+
+def home(request):
+    # form=DesignForm()
+    designs = Designs.objects.all()
+    return render(request,'home.html',{"designs":designs})
+
+# def home(request):
+#     # posts = Post.objects.all()
+#
+#     return render(request,'home.html')
 
 def register(request):
     if request.user.is_authenticated():
