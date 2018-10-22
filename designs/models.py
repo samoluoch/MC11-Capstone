@@ -17,7 +17,6 @@ class Profile(models.Model):
     photo = models.ImageField(upload_to='image/', null=True)
     email = models.CharField(max_length =30, null=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, default=1)
-    neighborhood = models.ForeignKey(Neighborhood, default=6)
 
 
 
