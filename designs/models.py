@@ -46,3 +46,75 @@ class Profile(models.Model):
     def filter_by_id(cls, id):
         profile = Profile.objects.filter(user=id).first()
         return profile
+
+
+class Designs(models.Model):
+    '''
+    This is post class model
+    '''
+    title = models.CharField(max_length =60)
+    description = models.TextField()
+    pub_date = models.DateTimeField(auto_now_add=True)
+    profile = models.ForeignKey(User, null=True)
+    comment = models.TextField(null=True)
+    file = models.FileField(upload_to='files/', null=True)
+
+
+
+
+    def save_post(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
+
+
+    @classmethod
+    def get_profile_designs(cls, profile):
+        designs = Designs.objects.filter(profile__id=profile)
+        return designs
+
+    @classmethod
+    def get_location_designs(cls, location):
+        designs = Designs.objects.filter(location__id=location)
+        return designs
+
+    @classmethod
+    def search_by_category(cls, search_term):
+        designs = cls.objects.filter(category__name__icontains=search_term)
+        return designs
+
+    @classmethod
+    def search_by_location(cls, search_term):
+        designs = cls.objects.filter(location__name__icontains=search_term)
+        return designs
+
+
+    @classmethod
+    def all_posts(cls):
+        designs = cls.objects.all()
+        return designs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
