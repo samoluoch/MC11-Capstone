@@ -6,7 +6,8 @@ from django.conf.urls.static import static
 
 
 urlpatterns=[
-url(r'^$', views.home, name='home'),
+    url(r'^$', views.home, name='home'),
+    url(r'^signup/', views.register, name='signup'),
 
 ]
 
