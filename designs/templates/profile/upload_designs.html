@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="container-fluid" style=" margin-top: -21px;">
+    <div class="row">
+
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" id="pform">
+            <div class="jumbotron" >
+                            <h4>Order Architectural Designs</h4>
+
+            <form action="{% url 'upload_designs' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-success btn-lg" value="POST">
+            </form>
+        </div>
+    </div>
+    </div>
+</div>
+{{ form.media }}
+
+<style>
+    body{
+    background:url("../../../static/img/bg1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 650px;
+
+    }
+    h2{
+    color: white;
+    text-align: center;
+    }
+    #pform{
+    width: 400px;
+    height: 300px;
+    opacity: 0.7;
+    }
+</style>
+{% endblock %}
+

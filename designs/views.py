@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import RegistrationForm,EditProfileForm
+from .forms import RegistrationForm,EditProfileForm,DesignsForm
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile,Designs
 
 
 
@@ -39,11 +39,11 @@ def profile(request,username):
         profile_details = Profile.get_by_id(profile.id)
     except:
         profile_details = Profile.filter_by_id(profile.id)
-    posts = Post.get_profile_posts(profile.id)
-    title = f'@{profile.username} Projects'
+    designs = Designs.get_profile_designs(profile.id)
+    title = f'@{profile.username} Designs'
 
 
-    return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'posts':posts, 'profile_details':profile_details})
+    return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'designs':designs, 'profile_details':profile_details})
 
 
 
@@ -61,6 +61,18 @@ def edit_profile(request):
     return render(request, 'profile/edit_profile.html', {'form':form})
 
 
+def upload_designs(request):
+    if request.method == 'POST':
+        form = DesignsForm(request.POST, request.FILES)
+        if form.is_valid():
+            upload = form.save(commit=False)
+            upload.profile = request.user
+            upload.save()
+            return redirect('profile',username=request.user)
+    else:
+        form = DesignsForm()
+
+    return render(request, 'profile/upload_designs.html', {'form': form})
 
 
 

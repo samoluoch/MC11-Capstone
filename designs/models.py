@@ -53,11 +53,26 @@ class Designs(models.Model):
     This is post class model
     '''
     title = models.CharField(max_length =60)
-    description = models.TextField()
+    details = models.TextField()
+    number_of_bedrooms = models.IntegerField(max_length =60)
+    bedrooms_size = models.IntegerField(max_length =60)
+    number_of_washrooms = models.IntegerField(max_length =60)
+    washroom_size = models.IntegerField(max_length =60)
+    total_size = models.IntegerField(max_length =60)
     pub_date = models.DateTimeField(auto_now_add=True)
     profile = models.ForeignKey(User, null=True)
-    comment = models.TextField(null=True)
-    file = models.FileField(upload_to='files/', null=True)
+    file_1 = models.FileField(upload_to='files/', blank=True)
+    file_2 = models.FileField(upload_to='files/', blank=True)
+    file_3 = models.FileField(upload_to='files/', blank=True)
+    file_4 = models.FileField(upload_to='files/', blank=True)
+    file_5 = models.FileField(upload_to='files/', blank=True)
+    profile = models.ForeignKey(User)
+
+
+
+
+
+
 
 
 
