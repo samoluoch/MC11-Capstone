@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ form.media }}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    {% if profile_details %}
+                    <h3 style="text-align:center; color: black;">My Profile Photo</h3>
+                    <img src="{{profile_details.photo.url}}" alt="photo" width='400' height='400'>
+                    {% else %}
+                    <img src="/static/images/dp.jpg" alt="avatar" width='200' height='200' style="align: center;">
+                    {% endif %}
+
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <!--{% if profile_details %}-->
+                    <!--<img src="{{profile_details.photo.url}}" alt="photo">-->
+                    <!--{% else %}-->
+                    <!--<img src="/static/images/dp.jpg" alt="avatar" width='200' height='200' style="align: center;">-->
+                    <!--{% endif %}-->
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <h4 style="color: black;">
+                                <span class="username"><h3 style="color: green;">Username:</h3> {{ profile.username }}</span></h4>
+                            <span class="username"><h3 style="color: green;">Email:</h3> {{ profile.email }}</span></h4>
+                            <h4><h3 style="color: green;">Joined On:</h3> {{ request.user.date_joined }}</h4>
+                            <h4><h3 style="color: green;">Last Login:</h3> {{ request.user.last_login }}</h4>
+
+                        </li>
+                        {% if profile.username == user.username %}
+                        <!--<li class="list-inline-item">-->
+                            <!--<a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Your Profile</a>-->
+                        <!--</li>-->
+                        <li class="list-inline-item">
+                            <a data-toggle="modal" data-target="#settings"><i class="fa fa-cog fa-2x"></i></a>
+                        </li>
+                        <img src="{{profile.image.url}}"  width='500' height='500' alt="">
+                        {% else %}
+
+                        {% endif %}
+
+
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span class="font-weight-bold"><h3 style="color: green;">Projects Posted:</h3> You have posted <h4 style="color:green">{{projects|length}} </h4></span> Projects
+                        </li>
+                    </ul>
+                    <h4><h3 style="color: green;">Profile Bio</h3></h4>
+                    <h4 class="font3">{{profile_details.bio|safe}}</h4>
+                    {% if profile.username == user.username %}
+                    <!--<p><a href="{% url 'upload_image' %}" class="btn btn-primary">Add Image</a></p>-->
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <h3 style="color: black;">My Projects List</h3>
+        {% for project in projects %}
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            <br><br>
+
+            <h3 style="color: green;" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">{{project.title}}</h3>
+<button type="button" data-toggle="modal" data-target="#myModal{{project.id}}">
+
+            <img class="well" src="{{project.image.url}}"  width='500' height='500' alt="" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="backgrounds-color: white;">
+                </button>
+
+                        <h4 style="color: black;">Project Summary</h4>
+
+            <h5>{{project.pub_date|timesince}} ago</h5>
+            <h5><b>Description:</b> {{project.description}}</h5>
+            <h5><b>URL:</b> {{project.url}}</h5>
+
+
+            <h4 style="color: black;">Project Ratings</h4>
+
+            <h5>{{ project.rating.count }} <h5 style="color: green;">Design</h5>  average = {{ project.average_design | floatformat }} </h5>
+            <h5>{{ project.rating.count }} <h5 style="color: green;">Usability</h5> average = {{ project.average_usability | floatformat }} </h5>
+
+            <h5>{{ project.rating.count }} <h5 style="color: green;">Content</h5>  average = {{ project.average_content | floatformat }}</h5>
+            <hr>
+                        <a href="{{project.url}}" class="blue-button">Visit site</a>
+
+
+        </div>
+        {% empty %}
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            <h5>You have submitted 0 projects so far. Please submit projects</h5>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body"><ul class="list-group">
+            <li class="list-group-item text-center"><a href="#">Edit Profile</a></li>
+            <li class="list-group-item text-center"><a href="/logout/">Log Out</a></li>
+            <li class="list-group-item text-center"><a data-dismiss="modal">Cancel</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% for project in projects %}
+<!-- modal content -->
+<div class="modal fade" id="myModal{{project.id}}" role="dialog">
+   <div class="modal-dialog">
+
+       <div class="modal-content">
+           <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+           </div>
+
+           <div class="modal-body">
+                              <img src="{{project.image.url }}" alt="" width="500" height="500">
+
+           </div>
+
+
+           <div class="modal-footer">
+               <h3>Project Details</h3>
+               <h5 style="color: green;">{{project.pub_date|timesince}} ago</h5>
+                <h5 style="color: green;"><b>Caption:</b> {{project.description}}</h5>
+
+               <h5>{{ project.rating.count }} <h5 style="color: green;">Design</h5>  average = {{ project.average_design | floatformat }} </h5>
+            <h5>{{ project.rating.count }} <h5 style="color: green;">Usability</h5> average = {{ project.average_usability | floatformat }} </h5>
+
+            <h5>{{ project.rating.count }} <h5 style="color: green;">Content</h5>  average = {{ project.average_content | floatformat }}</h5>
+            <hr>
+                        <a href="{{project.url}}" class="blue-button">Visit site</a>
+
+
+           </div>
+       </div>
+   </div>
+</div>
+{% endfor %}
+
+
+
+{% endblock %}
+
+<div class="col-lg-6 col-md-6 col-sm-6">
+
+        <h4>Account Details</h4>
+
+        <hr>
+
+        <div class="horizontal">
+            <p>Username</p>
+            <p>{{ request.user.username }}</p>
+
+            <p>Email</p>
+            <p>{{ request.user.email }}</p>
+
+            <p>Date Joined</p>
+            <p>{{ request.user.date_joined }}</p>
+
+            <p>Last Login</p>
+            <p>{{ request.user.last_login }}</p>
+
+            <p>Snippet created</p>
+            <p>{{ request.user.profile.get_snippet_count }}</p>
+        </div>
+
+    </div>
+
+
+    <div>
+        <p>{{ project.name }}</p>
+        <div class="container w-100">
+            <img class="w-100" src="{{ post.landing_image.url }}" alt="">
+        </div>
+    </div>

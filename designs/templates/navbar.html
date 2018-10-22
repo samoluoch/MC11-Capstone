@@ -1,0 +1,99 @@
+<style>
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid #ddd;
+}
+.navbar .logo-section {
+  display: flex;
+  align-items: center;
+}
+.navbar .logo-section div {
+  align-self: stretch;
+  width: 1px;
+  background: black;
+  margin: 0 20px;
+}
+.navbar .icons-section .fa {
+  text-decoration: none;
+  color: inherit;
+  font-size: 2rem;
+  margin: 0 10px;
+}
+.navbar .logo {
+  width: 40px;
+}
+.navbar .logoname {
+  width: 130px;
+}
+.navbar .input-search {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solix #ddd;
+  outline: 0;
+}
+.navbar .input-search:focus {
+  text-align: left;
+}
+</style>
+<nav class="navbar">
+    <!--<section class="logo-section"><a href="{%url 'home'%}"><img class="logo" src="https://seeklogo.com/images/I/instagram-new-2016-glyph-logo-84CB825424-seeklogo.com.png"/></a>-->
+    <!--<div></div>-->
+
+      <!--<a href="{%url 'home'%}"><img class="logoname" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png"/></a>-->
+  <!--</section>-->
+    <!--search form-->
+  <!-- Adding a search form  -->
+
+
+
+
+
+
+      <!-- search form end -->
+    <!--end of search form-->
+ <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            {% if user.is_authenticated %}
+            <ul>
+
+                <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false"><div class="col-md-3">
+            <h4>My Account</h4>
+        </div>
+                          <span class="caret"></span>
+                      </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="{%url 'home'%}">Home</a>
+                  </li>
+                    <li>
+                    <a href="/user/samsoluoch">Profile Details</a>
+                  </li>
+                    <li class="list-inline-item">
+                            <a href="{% url 'edit_profile' %}">Edit Profile</a>
+                        </li>
+
+                  <li>
+                    <a href="/password/change">Change Password</a>
+                  </li>
+                    <li>
+                    <a href="/logout">Logout</a>
+                  </li>
+
+                </ul>
+
+            </ul>
+            {% else %}
+            <li>
+              <a class='btn btn-default' href="login">Login</a>
+            </li>
+
+            {% endif %}
+          </div>
+    <div class="upload_project">
+    <a href="/upload/" class="btn btn-primary">Submit Project</a>
+</div>
+</nav>
+
