@@ -10,12 +10,15 @@ from paypal.standard.forms import PayPalPaymentsForm
 
 
 # Create your views here.
-
-
 def home(request):
     # form=DesignForm()
     designs = Designs.objects.all()
     return render(request,'home.html',{"designs":designs})
+
+def orders(request):
+    # form=DesignForm()
+    designs = Designs.objects.all()
+    return render(request,'orders.html',{"designs":designs})
 
 # def home(request):
 #     # posts = Post.objects.all()

@@ -1,318 +1,38 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 {% load bootstrap3 %}
+
 {% block content %}
-{% load staticfiles %}
+<div class="container-fluid" style=" margin-top: -21px;">
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="order">
+            <div class="jumbotron" >
+                            <h3>Order Architectural Designs</h3>
+
+
+        </div>
+    </div>
+    </div>
+</div>
+{{ form.media }}
 
 <style>
-.blue-button{
-    width: 100px;
-    -webkit-transition: background-color 1s , color 1s; /* For Safari 3.1 to 6.0 */
-    transition: background-color 1s , color 1s;
-    min-height: 20px;
-    background-color: #002E5B;
-    color: #ffffff;
-    border-radius: 4px;
+    body{
+    background:url("../../../static/img/bg1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 650px;
+
+    }
+    h3{
+    color: black;
     text-align: center;
-    font-weight: lighter;
-    margin: 0px 20px 15px 20px;
-    padding: 5px 0px;
-    display: inline-block;
-}
-.blue-button:hover{
-    background-color: #dadada;
-    color: #002E5B;
-}</style>
-
-<h2 style="text-align:center;">E-Designs</h2>
-<p style="text-align:center;"><i>Actuating your design dreams!</i></p>
-
-<!--Order display-->
-
-            {% for design in designs %}
-<br><br><br><br>
-
-<div class="container-fluid">
-    <div class="jumbotron" style="background-color: grey; text-align:center; color:white;">
-
-
-                    <h5><b style="color: white; align: right;">Client Name:<br></b> {{design.profile}}</h5>
-    </div>
-    <div class="row" id="main-row">
-
-
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-                                        <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-
-            <p><b style="color: green;">Project Title:<br></b> {{design.title}}</p>
-
-
-
-
-                                        </div>
-
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-
-<div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-            <p><b style="color: green;">House Type:<br></b> {{design.house_type}}</p>
-
-
-
-                                        </div>
-
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-
-
-<div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-            <p><b style="color: green;">Land Location:<br></b> {{design.land_location}}</p>
-
-
-
-                                        </div>
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-
-
-<div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-            <p><b style="color: green;">Date of Completion:<br></b> {{design.date_of_completion}}</p>
-
-
-
-                                        </div>
-
-                </div>
-    </div>
-
-    <div class="row" id="row3">
-
-
-
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-            <p><b style="color: green;">Floor Area:<br></b> {{design.floor_area}}</p>
-
-</div>
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-
-            <p><b style="color: green;">Number of Bedrooms:<br></b> {{design.number_of_bedrooms}}</p>
-                                </div>
-
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-
-            <p><b style="color: green;">Number of Washrooms:<br></b> {{design.number_of_washrooms}}</p>
-                                </div>
-
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-
-            <p><b style="color: green;">Washroom Size:<br></b> {{design.washroom_size}}</p>
-                                </div>
-
-
-                </div>
-    </div>
-
-    <div class="row" id="row1">
-
-
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-                                        <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-
-            <p><b style="color: green;">Living Room Size:<br></b> {{design.living_room_size}}</p>
-                                        </div>
-
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-
-            <p><b style="color: green;">Master Bedroom Size:<br></b> {{design.master_bedroom_size}}</p>
-                                </div>
-
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-
-            <p><b style="color: green;">Other Bedrooms' Size:<br></b> {{design.bedrooms_size}}</p>
-                                </div>
-
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-            <p><b style="color: green;">Kitchen Size:<br></b> {{design.kitchen_size}}</p>
-                                </div>
-
-
-
-                </div>
-    </div>
-
-    <div class="row" id="row2">
-
-
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-                                        <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-
-            <p><b style="color: green;">Number of Windows:<br></b> {{design.number_of_windows}}</p>
-                                        </div>
-
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-
-            <p><b style="color: green;">Wall Material:<br></b> {{design.wall_material}}</p>
-                                </div>
-
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-            <p><b style="color: green;">Ventilation Details:<br></b> {{design.ventilation_description}}</p>
-                                </div>
-
-
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
-                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-            <p><b style="color: green;">Roofing Details:<br></b> {{design.roofing_description}}</p>
-                                </div>
-
-
-
-                </div>
-    </div>
-
-
-        <div class="well" style="background-color: lightblue; text-align:center;">
-
-    <h5>Client's Sketches</h5>
-        </div>
-    <div class="row" id="row5">
-
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
-                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-        {% if design.file_1 %}
-            <p>File 1:<br> <a href="{{ design.file_1.url }}">Download</a></p>
-        {% endif %}
-                    </div>
-
-
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
-                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-        {% if design.file_2 %}
-            <p>File 2:<br> <a href="{{ design.file_2.url }}">Download</a></p>
-        {% endif %}
-                    </div>
-
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
-                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-        {% if design.file_3 %}
-            <p>File 3:<br> <a href="{{ design.file_3.url }}">Download</a></p>
-        {% endif %}
-                    </div>
-
-
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
-                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-        {% if design.file_4 %}
-            <p>File 4:<br> <a href="{{ design.file_4.url }}">Download</a></p>
-        {% endif %}
-                    </div>
-
-                </div>
-
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
-                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-
-        {% if design.file_5 %}
-            <p>File 5:<br> <a href="{{ design.file_5.url }}">Download</a></p>
-        {% endif %}
-                    </div>
-
-
-                </div>
-
-    </div>
-    <div class="well" style="background-color: #F7F7F7; text-align:center;">
-
-                    <h3>Project's Design Cost:<br> $<a href="www.paypal.com">{{ design.cost }}</a></h3>
-        </div>
-<!--end of order display-->
-
-
-
-
-
-
-
-
-
-</div>
-{% endfor %}
-
-
-
-{%endblock%}
-
-
-
+    }
+    #order{
+    height: 10px;
+    opacity: 0.7;
+    }
+</style>
+{% endblock %}
 

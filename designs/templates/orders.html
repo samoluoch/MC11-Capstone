@@ -1,63 +1,35 @@
-{% extends 'base.html' %}
-
+{%extends 'base.html'%}
+{% load bootstrap3 %}
 {% block content %}
-{{ form.media }}
-<div class="container">
-    <div class="row">
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    {% if profile_details.photo %}
-                    <h3 style="text-align:center; color: black;">My Profile Photo</h3>
-                    <img src="{{profile_details.photo.url}}" alt="photo" width='400' height='400'>
-                    {% else %}
-                    <img src="/static/images/dp.jpg" alt="avatar" width='200' height='200' style="align: center;">
-                    {% endif %}
+{% load staticfiles %}
 
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<style>
+.blue-button{
+    width: 100px;
+    -webkit-transition: background-color 1s , color 1s; /* For Safari 3.1 to 6.0 */
+    transition: background-color 1s , color 1s;
+    min-height: 20px;
+    background-color: #002E5B;
+    color: #ffffff;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: lighter;
+    margin: 0px 20px 15px 20px;
+    padding: 5px 0px;
+    display: inline-block;
+}
+.blue-button:hover{
+    background-color: #dadada;
+    color: #002E5B;
+}</style>
 
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <h4 style="color: black;">
-                                <span class="username"><h3 style="color: green;">Username:</h3> {{ profile.username }}</span></h4>
-                            <span class="username"><h3 style="color: green;">Email:</h3> {{ profile.email }}</span></h4>
-                            <h4><h3 style="color: green;">Joined On:</h3> {{ request.user.date_joined }}</h4>
-                            <h4><h3 style="color: green;">Last Login:</h3> {{ request.user.last_login }}</h4>
+<h2 style="text-align:center;">E-Designs</h2>
+<p style="text-align:center;"><i>Actuating your design dreams!</i></p>
 
-                        </li>
-                        {% if profile.username == user.username %}
+<!--Order display-->
 
-                        <li class="list-inline-item">
-                            <a data-toggle="modal" data-target="#settings"><i class="fa fa-cog fa-2x"></i></a>
-                        </li>
-                        <img src="{{profile.image.url}}"  width='500' height='500' alt="">
-                        {% else %}
-
-                        {% endif %}
-
-
-                    </ul>
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <span class="font-weight-bold"><h3 style="color: green;">Orders Made:</h3> You have ordered <h4 style="color:green">{{designs|length}} </h4></span> Designs
-                        </li>
-                    </ul>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <h3 style="color: black;">Design Orders</h3>
-
-        {% for design in designs %}
-<br>
+            {% for design in designs %}
+<br><br><br><br>
 
 <div class="container-fluid">
     <div class="jumbotron" style="background-color: grey; text-align:center; color:white;">
@@ -324,62 +296,23 @@
 
                     <h3>Project's Design Cost:<br> $<a href="www.paypal.com">{{ design.cost }}</a></h3>
         </div>
+<!--end of order display-->
+
+
+
+
+
+
+
+
 
 </div>
-        <!--end of order display-->
 {% endfor %}
 
 
-    </div>
-</div>
-<div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body"><ul class="list-group">
-            <li class="list-group-item text-center"><a href="#">Edit Profile</a></li>
-            <li class="list-group-item text-center"><a href="/logout/">Log Out</a></li>
-            <li class="list-group-item text-center"><a data-dismiss="modal">Cancel</a></li>
-          </ul>
-      </div>
-    </div>
-  </div>
-</div>
+
+{%endblock%}
 
 
 
 
-
-{% endblock %}
-
-<div class="col-lg-6 col-md-6 col-sm-6">
-
-        <h4>Account Details</h4>
-
-        <hr>
-
-        <div class="horizontal">
-            <p>Username</p>
-            <p>{{ request.user.username }}</p>
-
-            <p>Email</p>
-            <p>{{ request.user.email }}</p>
-
-            <p>Date Joined</p>
-            <p>{{ request.user.date_joined }}</p>
-
-            <p>Last Login</p>
-            <p>{{ request.user.last_login }}</p>
-
-            <p>Snippet created</p>
-            <p>{{ request.user.profile.get_snippet_count }}</p>
-        </div>
-
-    </div>
-
-
-    <div>
-        <p>{{ project.name }}</p>
-        <div class="container w-100">
-            <img class="w-100" src="{{ post.landing_image.url }}" alt="">
-        </div>
-    </div>
