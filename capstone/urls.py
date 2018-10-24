@@ -25,10 +25,10 @@ urlpatterns = [
     url(r'', include('designs.urls')),
     url(r'^', include('registration.backends.simple.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}),
-    # url(r'^files/', include('files.urls')),
+    url(r'^paypal/', include('paypal.standard.ipn.urls')),
 
 ]
 
-# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)
 

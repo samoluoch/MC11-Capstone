@@ -88,10 +88,9 @@ def upload_designs(request):
 
 def paypal(request):
 
-    # What you want the button to do.
     paypal_dict = {
-        "business": "receiver_email@example.com",
-        "amount": "10000000.00",
+        "business": "samoluoch.codes@gmail.com",
+        "amount": "999999.00",
         "item_name": "name of the item",
         "invoice": "unique-invoice-id",
         "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
@@ -100,7 +99,7 @@ def paypal(request):
         "custom": "premium_plan",  # Custom command to correlate to some function later (optional)
     }
 
-    # Create the instance.
+    # Creating the instance.
     form = PayPalPaymentsForm(initial=paypal_dict)
     context = {"form": form}
     return render(request, "payment.html", context)
