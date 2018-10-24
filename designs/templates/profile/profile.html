@@ -2,30 +2,30 @@
 
 {% block content %}
 {{ form.media }}
-<body>
 <div class="container">
     <div class="row">
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     {% if profile_details.photo %}
-                    <h3 style="text-align:left; color: white;">My Profile Photo</h3>
-                    <img src="{{profile_details.photo.url}}" alt="photo" width='200' height='200'>
+                    <h3 style="text-align:center; color: black;">My Profile Photo</h3>
+                    <img src="{{profile_details.photo.url}}" alt="photo" width='400' height='400'>
                     {% else %}
                     <img src="/static/images/dp.jpg" alt="avatar" width='200' height='200' style="align: center;">
                     {% endif %}
 
                 </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center" id="prof-col">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
                     <ul class="list-inline">
                         <li class="list-inline-item">
                             <h4 style="color: black;">
-                                <span class="username"><h5 style="color: green;">Username:</h5> {{ profile.username }}</span></h4>
-                            <span class="username"><h5 style="color: green;">Email:</h5> {{ profile.email }}</span></h4>
-                            <span class="username"><h5 style="color: green;">Neighborhood:</h5> {{ profile_details.neighborhood }}</span></h4>
-
-                            <h4><h5 style="color: green;">Joined On:</h5> {{ request.user.date_joined }}</h4>
-                            <h4><h5 style="color: green;">Last Login:</h5> {{ request.user.last_login }}</h4>
+                                <span class="username"><h3 style="color: green;">Username:</h3> {{ profile.username }}</span></h4>
+                            <span class="username"><h3 style="color: green;">Email:</h3> {{ profile.email }}</span></h4>
+                            <h4><h3 style="color: green;">Joined On:</h3> {{ request.user.date_joined }}</h4>
+                            <h4><h3 style="color: green;">Last Login:</h3> {{ request.user.last_login }}</h4>
 
                         </li>
                         {% if profile.username == user.username %}
@@ -42,43 +42,300 @@
                     </ul>
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <span class="font-weight-bold"><h5 style="color: green;">Your Posts:</h5> You have posted <h4 style="color:green">{{posts|length}} </h4></span> Post Updates
+                            <span class="font-weight-bold"><h3 style="color: green;">Orders Made:</h3> You have ordered <h4 style="color:green">{{designs|length}} </h4></span> Designs
                         </li>
                     </ul>
 
-                    {% if profile.username == user.username %}
-                    {% endif %}
+
                 </div>
             </div>
+        </div>
     </div>
-<br><br>
+
 
     <div class="row">
-        <h3 style="color: white; text-align: center;">My Updates</h3>
-        <br>
-        {% for post in posts %}
+        <h3 style="color: black;">Design Orders</h3>
+
+        {% for design in designs %}
+<br>
+
+<div class="container-fluid">
+    <div class="jumbotron" style="background-color: grey; text-align:center; color:white;">
+
+
+                    <h5><b style="color: white; align: right;">Client Name:<br></b> {{design.profile}}</h5>
+    </div>
+    <div class="row" id="main-row">
+
+
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                        <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+
+            <p><b style="color: green;">Project Title:<br></b> {{design.title}}</p>
+
+
+
+
+                                        </div>
+
+
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+
+<div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+            <p><b style="color: green;">House Type:<br></b> {{design.house_type}}</p>
+
+
+
+                                        </div>
+
+
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+
+
+<div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+            <p><b style="color: green;">Land Location:<br></b> {{design.land_location}}</p>
+
+
+
+                                        </div>
+
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+
+
+<div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+            <p><b style="color: green;">Date of Completion:<br></b> {{design.date_of_completion}}</p>
+
+
+
+                                        </div>
+
+                </div>
+    </div>
+
+    <div class="row" id="row3">
+
+
+
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+            <p><b style="color: green;">Floor Area:<br></b> {{design.floor_area}}</p>
+
+</div>
+
+                </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
 
 
-    <div class="well" width='50' height='50' id="prof-post">
-            <h5><b><h4 style="color: green;">Title</h4></b> {{post.name}}</h5>
 
-            <h5>{{post.pub_date|timesince}} ago</h5>
+            <p><b style="color: green;">Number of Bedrooms:<br></b> {{design.number_of_bedrooms}}</p>
+                                </div>
 
-            <h5><b><h4 style="color: green;">Details</h4></b> {{post.description}}</h5>
 
-            <h5><b><h4 style="color: green;">Neighborhood</h4></b> {{post.location}}</h5>
-            <h5><b><h4 style="color: green;">Category</h4></b> {{post.category}}</h5>
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+
+            <p><b style="color: green;">Number of Washrooms:<br></b> {{design.number_of_washrooms}}</p>
+                                </div>
+
+
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+
+            <p><b style="color: green;">Washroom Size:<br></b> {{design.washroom_size}}</p>
+                                </div>
+
+
+                </div>
+    </div>
+
+    <div class="row" id="row1">
+
+
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                        <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+
+            <p><b style="color: green;">Living Room Size:<br></b> {{design.living_room_size}}</p>
+                                        </div>
+
+
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+
+            <p><b style="color: green;">Master Bedroom Size:<br></b> {{design.master_bedroom_size}}</p>
+                                </div>
+
+
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+
+            <p><b style="color: green;">Other Bedrooms' Size:<br></b> {{design.bedrooms_size}}</p>
+                                </div>
+
+
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+            <p><b style="color: green;">Kitchen Size:<br></b> {{design.kitchen_size}}</p>
+                                </div>
+
+
+
+                </div>
+    </div>
+
+    <div class="row" id="row2">
+
+
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                        <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+
+            <p><b style="color: green;">Number of Windows:<br></b> {{design.number_of_windows}}</p>
+                                        </div>
+
+
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+
+            <p><b style="color: green;">Wall Material:<br></b> {{design.wall_material}}</p>
+                                </div>
+
+
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+            <p><b style="color: green;">Ventilation Details:<br></b> {{design.ventilation_description}}</p>
+                                </div>
+
+
+
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+            <p><b style="color: green;">Roofing Details:<br></b> {{design.roofing_description}}</p>
+                                </div>
+
+
+
+                </div>
+    </div>
+
+
+        <div class="well" style="background-color: lightblue; text-align:center;">
+
+    <h5>Client's Sketches</h5>
         </div>
-            </div>
+    <div class="row" id="row5">
+
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
 
 
+        {% if design.file_1 %}
+            <p>File 1:<br> <a href="{{ design.file_1.url }}">Download</a></p>
+        {% endif %}
+                    </div>
 
-        {% empty %}
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-            <h5>You have submitted 0 projects so far. Please submit projects</h5>
+
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+        {% if design.file_2 %}
+            <p>File 2:<br> <a href="{{ design.file_2.url }}">Download</a></p>
+        {% endif %}
+                    </div>
+
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+        {% if design.file_3 %}
+            <p>File 3:<br> <a href="{{ design.file_3.url }}">Download</a></p>
+        {% endif %}
+                    </div>
+
+
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+        {% if design.file_4 %}
+            <p>File 4:<br> <a href="{{ design.file_4.url }}">Download</a></p>
+        {% endif %}
+                    </div>
+
+                </div>
+
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+        {% if design.file_5 %}
+            <p>File 5:<br> <a href="{{ design.file_5.url }}">Download</a></p>
+        {% endif %}
+                    </div>
+
+
+                </div>
+
+    </div>
+    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+                    <h3>Project's Design Cost:<br> $<a href="www.paypal.com">{{ design.cost }}</a></h3>
         </div>
-        {% endfor %}
+<!--end of order display-->
+
+
+
+
+
+
+
+
+
+</div>
+{% endfor %}
     </div>
 </div>
 <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -93,38 +350,80 @@
     </div>
   </div>
 </div>
-</body>
-
-<style>
-    body{
-    background:url("../../../static/img/bg5.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 20px;
-
-    }
-    h2{
-    color: white;
-    text-align: center;
-    }
-
-    #prof-col{
-    height:400px;
-    width:300px;
-    background-color: #F7F7F7;
-    opacity: 0.7;
-    }
-    #prof-post{
-    height:100%;
-
-    background-color: #F7F7F7;
-    opacity: 0.7;
-    }
-</style>
 
 
+
+
+<!--{% for project in projects %}-->
+<!--&lt;!&ndash; modal content &ndash;&gt;-->
+<!--<div class="modal fade" id="myModal{{project.id}}" role="dialog">-->
+   <!--<div class="modal-dialog">-->
+
+       <!--<div class="modal-content">-->
+           <!--<div class="modal-header">-->
+               <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+
+
+           <!--</div>-->
+
+           <!--<div class="modal-body">-->
+                              <!--<img src="{{project.image.url }}" alt="" width="500" height="500">-->
+
+           <!--</div>-->
+
+
+           <!--<div class="modal-footer">-->
+               <!--<h3>Project Details</h3>-->
+               <!--<h5 style="color: green;">{{project.pub_date|timesince}} ago</h5>-->
+                <!--<h5 style="color: green;"><b>Caption:</b> {{design.details}}</h5>-->
+
+               <!--<h5>{{ project.rating.count }} <h5 style="color: green;">Design</h5>  average = {{ project.average_design | floatformat }} </h5>-->
+            <!--<h5>{{ project.rating.count }} <h5 style="color: green;">Usability</h5> average = {{ project.average_usability | floatformat }} </h5>-->
+
+            <!--<h5>{{ project.rating.count }} <h5 style="color: green;">Content</h5>  average = {{ project.average_content | floatformat }}</h5>-->
+            <!--<hr>-->
+                        <!--<a href="{{project.url}}" class="blue-button">Visit site</a>-->
+
+
+           <!--</div>-->
+       <!--</div>-->
+   <!--</div>-->
+<!--</div>-->
+<!--{% endfor %}-->
 
 
 
 {% endblock %}
+
+<div class="col-lg-6 col-md-6 col-sm-6">
+
+        <h4>Account Details</h4>
+
+        <hr>
+
+        <div class="horizontal">
+            <p>Username</p>
+            <p>{{ request.user.username }}</p>
+
+            <p>Email</p>
+            <p>{{ request.user.email }}</p>
+
+            <p>Date Joined</p>
+            <p>{{ request.user.date_joined }}</p>
+
+            <p>Last Login</p>
+            <p>{{ request.user.last_login }}</p>
+
+            <p>Snippet created</p>
+            <p>{{ request.user.profile.get_snippet_count }}</p>
+        </div>
+
+    </div>
+
+
+    <div>
+        <p>{{ project.name }}</p>
+        <div class="container w-100">
+            <img class="w-100" src="{{ post.landing_image.url }}" alt="">
+        </div>
+    </div>
