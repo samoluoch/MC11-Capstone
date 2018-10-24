@@ -22,44 +22,61 @@
     background-color: #dadada;
     color: #002E5B;
 }</style>
+
+<h2 style="text-align:center;">E-Designs</h2>
+<p style="text-align:center;"><i>Actuating your dream designs</i></p>
+
 <!--Order display-->
 
             {% for design in designs %}
 <br><br><br><br>
 
 <div class="container-fluid">
+    <div class="jumbotron" style="background-color: grey; text-align:center; color:white;">
 
-                    <p><b style="color: green;">Client Name:<br></b> {{design.profile}}</p>
+
+                    <h5><b style="color: white; align: right;">Client Name:<br></b> {{design.profile}}</h5>
+    </div>
 
     <div class="row" id="main-row">
 
 
 
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
 
             <p><b style="color: green;">Project Title:<br></b> {{design.title}}</p>
 
-
+</div>
 
                 </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
 
             <p><b style="color: green;">Number of Bedrooms:<br></b> {{design.number_of_bedrooms}}</p>
+                                </div>
 
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
 
             <p><b style="color: green;">Number of Washrooms:<br></b> {{design.number_of_washrooms}}</p>
+                                </div>
 
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
 
             <p><b style="color: green;">Washroom Size:<br></b> {{design.washroom_size}}</p>
+                                </div>
 
 
                 </div>
@@ -67,31 +84,43 @@
 
     <div class="row" id="row1">
 
-        <br><br>
+
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                        <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
 
             <p><b style="color: green;">Living Room Size:<br></b> {{design.living_room_size}}</p>
+                                        </div>
 
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
 
             <p><b style="color: green;">Master Bedroom Size:<br></b> {{design.master_bedroom_size}}</p>
+                                </div>
 
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
 
             <p><b style="color: green;">Other Bedrooms' Size:<br></b> {{design.bedrooms_size}}</p>
+                                </div>
 
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
             <p><b style="color: green;">Kitchen Size:<br></b> {{design.kitchen_size}}</p>
+                                </div>
 
 
 
@@ -100,31 +129,43 @@
 
     <div class="row" id="row2">
 
-        <br><br>
+
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                        <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
 
             <p><b style="color: green;">Number of Windows:<br></b> {{design.number_of_windows}}</p>
+                                        </div>
 
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
 
             <p><b style="color: green;">Wall Material:<br></b> {{design.wall_material}}</p>
+                                </div>
 
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
             <p><b style="color: green;">Ventilation Details:<br></b> {{design.ventilation_description}}</p>
+                                </div>
 
 
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
             <p><b style="color: green;">Roofing Details:<br></b> {{design.roofing_description}}</p>
+                                </div>
 
 
 
@@ -132,8 +173,15 @@
     </div>
     <div class="row" id="row3">
 
-        <br><br>
+
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+                                        <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+
+
+
+                                        </div>
 
 
 
@@ -141,42 +189,78 @@
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
 
+<div class="well" style="background-color: #F7F7F7; text-align:center;">
 
+
+
+
+
+                                        </div>
 
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
 
 
+<div class="well" style="background-color: #F7F7F7; text-align:center;">
 
+
+
+
+
+                                        </div>
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
 
 
+<div class="well" style="background-color: #F7F7F7; text-align:center;">
 
+
+
+
+
+                                        </div>
 
                 </div>
     </div>
     <div class="row" id="row4">
 
-        <br><br>
+
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
 
+<div class="well" style="background-color: #F7F7F7; text-align:center;">
 
+
+
+
+
+                                        </div>
+
+
+                </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+
+<div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+
+
+
+                                        </div>
 
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
 
 
-
-
-                </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
+<div class="well" style="background-color: #F7F7F7; text-align:center;">
 
 
 
+
+
+                                        </div>
 
                 </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="well" style="background-color:;">
@@ -184,53 +268,70 @@
 
                 </div>
     </div>
-    <h5>Uploaded Sketches</h5>
+        <div class="well" style="background-color: lightblue; text-align:center;">
+
+    <h5>Client's Sketches</h5>
+        </div>
     <div class="row" id="row5">
 
-        <br><br>
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
         {% if design.file_1.url %}
             <p>File 1:<br> <a href="{{ design.file_1.url }}">Download</a></p>
         {% endif %}
+                    </div>
 
 
                 </div>
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
         {% if design.file_2.url %}
             <p>File 2:<br> <a href="{{ design.file_2.url }}">Download</a></p>
         {% endif %}
-
+                    </div>
 
                 </div>
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
         {% if design.file_3.url %}
             <p>File 3:<br> <a href="{{ design.file_3.url }}">Download</a></p>
         {% endif %}
+                    </div>
 
 
                 </div>
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
         {% if design.file_4.url %}
             <p>File 4:<br> <a href="{{ design.file_4.url }}">Download</a></p>
         {% endif %}
-
+                    </div>
 
                 </div>
 
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="well" style="background-color:;">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
 
         {% if design.file_5.url %}
             <p>File 5:<br> <a href="{{ design.file_5.url }}">Download</a></p>
         {% endif %}
+                    </div>
 
 
                 </div>
-                    <p>Total Cost:<br> $<a href="www.paypal.com">{{ design.cost }}</a></p>
+        <div class="well" style="background-color: #F7F7F7; text-align:center;">
 
+                    <p>Total Cost:<br> $<a href="www.paypal.com">{{ design.cost }}</a></p>
+        </div>
     </div>
 <!--end of order display-->
 
