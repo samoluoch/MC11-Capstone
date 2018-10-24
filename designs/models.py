@@ -52,7 +52,7 @@ class Designs(models.Model):
     '''
     This is post class model
     '''
-    title = models.CharField(max_length =60)
+    title = models.CharField(max_length =150)
     details = models.TextField()
     number_of_bedrooms = models.IntegerField(max_length =60)
     bedrooms_size = models.IntegerField(max_length =60)
@@ -61,28 +61,34 @@ class Designs(models.Model):
     total_size = models.IntegerField(max_length =60)
     pub_date = models.DateTimeField(auto_now_add=True)
     profile = models.ForeignKey(User, null=True)
+    profile = models.ForeignKey(User)
+    cost = models.IntegerField(max_length =60, null=True)
+    house_type = models.CharField(max_length =150, null=True)
+    land_location = models.CharField(max_length =150, null=True)
+    date_of_completion = models.DateField(null=True)
+    floor_area = models.IntegerField(max_length =60, null=True)
+    number_of_bedrooms = models.IntegerField(max_length =60, null=True)
+    number_of_washrooms = models.IntegerField(max_length =60, null=True)
+    washroom_size = models.IntegerField(max_length =60, null=True)
+    living_room_size = models.IntegerField(max_length =60, null=True)
+    master_bedroom_size = models.IntegerField(max_length =60, null=True)
+    bedrooms_size = models.IntegerField(max_length =60, null=True)
+    kitchen_size = models.IntegerField(max_length =60, null=True)
+    number_of_windows = models.IntegerField(max_length =60, null=True)
+    wall_material = models.TextField(null=True)
+    ventilation_description = models.TextField(null=True)
+    roofing_description = models.TextField(null=True)
     file_1 = models.FileField(upload_to='files/', blank=True)
     file_2 = models.FileField(upload_to='files/', blank=True)
     file_3 = models.FileField(upload_to='files/', blank=True)
     file_4 = models.FileField(upload_to='files/', blank=True)
     file_5 = models.FileField(upload_to='files/', blank=True)
-    profile = models.ForeignKey(User)
-    cost = models.IntegerField(max_length =60, null=True)
 
 
-
-
-
-
-
-
-
-
-
-    def save_post(self):
+    def save_design(self):
         self.save()
 
-    def delete_image(self):
+    def delete_design(self):
         self.delete()
 
 
