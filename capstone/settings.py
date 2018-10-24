@@ -28,6 +28,8 @@ SECRET_KEY = '=+r29q9+_8+t!9=^^r$#du!qoa-%p#qp3oivn+o+o#*s)&-tp%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+PAYPAL_TEST = True
+
 ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = 'home'
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'designs.apps.DesignsConfig',
     'bootstrap3',
+    'paypal.standard.ipn',
 
 ]
 
