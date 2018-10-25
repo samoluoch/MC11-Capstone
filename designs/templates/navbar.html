@@ -91,9 +91,20 @@
             </li>
 
             {% endif %}
-          </div>
+
+
+     <!--Button that displays the list of orders is the user is admin-->
+     {% if user.is_admin %}
+             <a href="/orders/" class="btn btn-primary">Checkout</a>
+
+            {% else %}
+              <!--<a class='btn btn-default' href="upload">Upload</a>-->
+
+            {% endif %}
+<!--End of button-->
+
+ </div>
     <div class="upload_project">
     <a href="/upload/" class="btn btn-primary">Order Designs</a>
 </div>
 </nav>
-
