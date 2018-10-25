@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1a75b66-1d18-4a9b-90ea-da52732349e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designs/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/designs/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designs/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designs/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designs/templates/order_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/designs/templates/order_details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designs/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/designs/templates/profile/profile.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,13 +45,13 @@
         <counts>
           <entry key="Procfile" value="8" />
           <entry key="env" value="7" />
-          <entry key="html" value="4257" />
+          <entry key="html" value="4259" />
           <entry key="py" value="994" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="4257" />
+          <entry key="HTML" value="4259" />
           <entry key="PLAIN_TEXT" value="15" />
           <entry key="Python" value="994" />
         </counts>
@@ -124,8 +120,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/designs/templates/profile/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="334" column="69" lean-forward="true" selection-start-line="334" selection-start-column="69" selection-end-line="334" selection-end-column="69" />
+            <state relative-caret-position="128">
+              <caret line="44" column="149" lean-forward="true" selection-start-line="44" selection-start-column="149" selection-end-line="44" selection-end-column="149" />
               <folding>
                 <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -651,8 +647,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/designs/templates/profile/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="334" column="69" lean-forward="true" selection-start-line="334" selection-start-column="69" selection-end-line="334" selection-end-column="69" />
+        <state relative-caret-position="128">
+          <caret line="44" column="149" lean-forward="true" selection-start-line="44" selection-start-column="149" selection-end-line="44" selection-end-column="149" />
           <folding>
             <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
