@@ -2,23 +2,90 @@
 {% load bootstrap3 %}
 
 {% block content %}
-<div class="container-fluid" style=" margin-top: -21px;">
+<div class="container-fluid">
     <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="order">
-            <div class="jumbotron" >
-                            <h3>Order Architectural Designs</h3>
+            <div class="well" >
+                            <h3>Order Designs</h3>
 
 
         </div>
     </div>
+    </div>
+
+    <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <div class="well">
+                                    <h3 style="text-align:center;">About Us</h3>
+                                        <p>We are an online designs team that offers design services, ranging from architectural to engineering designs. </p><br>
+                                            <h4 style="text-align:center;">Steps to Order</h4>
+                                            <ul>
+                                                <li>
+                                                    Click on the Order Design button and fill the form with your design specifications. Give as much details as possible.
+                                                </li>
+                                                <li>
+                                                    Attach sketches that you may have, which may act as our guidelines.
+                                                </li>
+                                                <li>
+                                                    Submit your order and we will review. We will then update your order with the cost of the designs.
+                                                </li>
+                                                <li>
+                                                    Pay for the designs and we will update the order with the files containing the designs once we are done with the designing.
+                                                </li>
+                                                <li>
+                                                    Download your designs
+                                                </li>
+                                            </ul>
+                                            </div>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                                <div class="well">
+
+                                    <h3 style="text-align:center;">Useful Links</h3>
+                                    <a href="/upload/" class="btn btn-primary">Order Designs</a>
+                                                                                    <br><br><br>
+                                     <a href="/user/{{request.user.username}}#order" class="btn btn-primary">My Orders</a>
+                                                                                    <br><br><br>
+
+                                     <a href="/user/{{request.user.username}}" class="btn btn-primary">My Profile</a>
+
+                                      <br><br><br><br><br><br><br><br><br>
+
+
+
+                                                                                </div>
+                                    </div>
+
+
+
+                                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-4" style="text-align:center;">
+                                                                                <div class="well">
+
+<h3>Contacts</h3>
+                                        <h5>Phone:<h6>0700000000</h6></h5>
+
+                                        <h5>Email:<h6>info@e-designs.com</h6></h5>
+                                        <br><br><br><br><br><br><br><br><br><br><br><br>
+
+                                                                                </div>
+
+                                    </div>
+
+
+
+
+
+                </div>
+
     </div>
 </div>
 {{ form.media }}
 
 <style>
     body{
-    background:url("../../../static/img/bg1.jpg");
+    background:url("../../../static/images/bg1.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,9 +96,8 @@
     color: black;
     text-align: center;
     }
-    #order{
-    height: 10px;
-    opacity: 0.7;
+    .well {
+    opacity:0.7;
     }
 </style>
 {% endblock %}

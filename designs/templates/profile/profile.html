@@ -3,13 +3,13 @@
 {% block content %}
 {{ form.media }}
 <div class="container">
-    <div class="row">
+    <div class="row" id="profile">
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     {% if profile_details.photo %}
-                    <h3 style="text-align:center; color: black;">My Profile Photo</h3>
-                    <img src="{{profile_details.photo.url}}" alt="photo" width='400' height='400'>
+                    <h3 style="text-align:left; color: white;">My Profile Photo</h3>
+                    <img src="{{profile_details.photo.url}}" alt="photo" width='200' height='200'>
                     {% else %}
                     <img src="/static/images/dp.jpg" alt="avatar" width='200' height='200' style="align: center;">
                     {% endif %}
@@ -22,10 +22,10 @@
                     <ul class="list-inline">
                         <li class="list-inline-item">
                             <h4 style="color: black;">
-                                <span class="username"><h3 style="color: green;">Username:</h3> {{ profile.username }}</span></h4>
-                            <span class="username"><h3 style="color: green;">Email:</h3> {{ profile.email }}</span></h4>
-                            <h4><h3 style="color: green;">Joined On:</h3> {{ request.user.date_joined }}</h4>
-                            <h4><h3 style="color: green;">Last Login:</h3> {{ request.user.last_login }}</h4>
+                                <span class="username"><h3 style="color: white;">Username:</h3> <p style="color: white;">{{ profile.username }}</p></span></h4>
+                            <span class="username"><h3 style="color: white;">Email:</h3> <p style="color: white;">{{ profile.email }}</p></span></h4>
+                            <h4><h3 style="color: white;">Joined On:</h3> <p style="color: white;">{{ request.user.date_joined }}</p></h4>
+                            <h4><h3 style="color: white;">Last Login:</h3> <p style="color: white;">{{ request.user.last_login }}</p></h4>
 
                         </li>
                         {% if profile.username == user.username %}
@@ -42,7 +42,7 @@
                     </ul>
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <span class="font-weight-bold"><h3 style="color: green;">Orders Made:</h3> You have ordered <h4 style="color:green">{{designs|length}} </h4></span> Designs
+                            <span class="font-weight-bold"><h3 style="color: white;">Orders Made:</h3> <p style="color: white;">You have ordered </p>> <h3 style="color: white;">{{designs|length}}</h3> </h4></span> <p style="color: white;">Designs</p>
                         </li>
                     </ul>
 
@@ -53,8 +53,8 @@
     </div>
 
 
-    <div class="row">
-        <h3 style="color: black;">Design Orders</h3>
+    <div class="row" id="order">
+        <h3 style="color: black; text-align:center;">Design Orders</h3>
 
         {% for design in designs %}
 <br>
@@ -329,21 +329,26 @@
         <!--end of order display-->
 {% endfor %}
 
+<style>
+    bodys{
+    background:url("../static/images/bg1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
 
-    </div>
-</div>
-<div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body"><ul class="list-group">
-            <li class="list-group-item text-center"><a href="#">Edit Profile</a></li>
-            <li class="list-group-item text-center"><a href="/logout/">Log Out</a></li>
-            <li class="list-group-item text-center"><a data-dismiss="modal">Cancel</a></li>
-          </ul>
-      </div>
-    </div>
-  </div>
-</div>
+    }
+    h3{
+    color: black;
+    text-align: center;
+    }
+    .well {
+    opacity:0.7;
+    }
+    #profile{
+    background:url("../static/images/bg1.png");
+    }
+</style>
 
 
 
@@ -351,35 +356,3 @@
 
 {% endblock %}
 
-<div class="col-lg-6 col-md-6 col-sm-6">
-
-        <h4>Account Details</h4>
-
-        <hr>
-
-        <div class="horizontal">
-            <p>Username</p>
-            <p>{{ request.user.username }}</p>
-
-            <p>Email</p>
-            <p>{{ request.user.email }}</p>
-
-            <p>Date Joined</p>
-            <p>{{ request.user.date_joined }}</p>
-
-            <p>Last Login</p>
-            <p>{{ request.user.last_login }}</p>
-
-            <p>Snippet created</p>
-            <p>{{ request.user.profile.get_snippet_count }}</p>
-        </div>
-
-    </div>
-
-
-    <div>
-        <p>{{ project.name }}</p>
-        <div class="container w-100">
-            <img class="w-100" src="{{ post.landing_image.url }}" alt="">
-        </div>
-    </div>

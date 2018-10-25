@@ -5,6 +5,8 @@ from .models import Profile,Designs
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from paypal.standard.forms import PayPalPaymentsForm
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -15,11 +17,13 @@ def home(request):
     designs = Designs.objects.all()
     return render(request,'home.html',{"designs":designs})
 
+@login_required(login_url='/login')
 def orders(request):
     # form=DesignForm()
     designs = Designs.objects.all()
     return render(request,'orders.html',{"designs":designs})
 
+@login_required(login_url='/login')
 def order_detail(request,id):
     # form=DesignForm()
     designs = Designs.objects.get(id=id)
@@ -50,7 +54,7 @@ def register(request):
             form = RegistrationForm()
         return render(request, 'registration/signup.html',{'form':form})
 
-
+@login_required(login_url='/login')
 def profile(request,username):
     profile = User.objects.get(username=username)
     try:
@@ -64,7 +68,7 @@ def profile(request,username):
     return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'designs':designs, 'profile_details':profile_details})
 
 
-
+@login_required(login_url='/login')
 def edit_profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, request.FILES)
@@ -78,7 +82,7 @@ def edit_profile(request):
 
     return render(request, 'profile/edit_profile.html', {'form':form})
 
-
+@login_required(login_url='/login')
 def upload_designs(request):
     if request.method == 'POST':
         form = DesignsForm(request.POST, request.FILES)
@@ -93,7 +97,7 @@ def upload_designs(request):
     return render(request, 'profile/upload_designs.html', {'form': form})
 
 
-
+@login_required(login_url='/login')
 def paypal(request):
 
     paypal_dict = {

@@ -18,9 +18,22 @@
         </div>
     </div>
 </div>
-{% endblock %}
+<style>
+    body{
+    background:url("../static/images/bg1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 650px;
+    opacity:0.7;
+    width:100%;
 
-{% block scripts %} {{block.super}}
-       {% load static %}
-  <script type="text/javascript" src="{%static 'js/newsletter.js'%}"></script>
+
+    }
+    h2{
+    color: white;
+    text-align: center;
+    }
+
+</style>
 {% endblock %}
