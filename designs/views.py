@@ -20,6 +20,11 @@ def orders(request):
     designs = Designs.objects.all()
     return render(request,'orders.html',{"designs":designs})
 
+def order_detail(request,id):
+    # form=DesignForm()
+    designs = Designs.objects.get(id=id)
+    return render(request,'order_details.html',{"designs":designs})
+
 # def home(request):
 #     # posts = Post.objects.all()
 #

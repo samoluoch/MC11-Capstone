@@ -69,7 +69,7 @@
                     <a href="{%url 'home'%}">Home</a>
                   </li>
                     <li>
-                    <a href="/user/samsoluoch">Profile Details</a>
+                    <a href="/user/{{request.user.username}}">Profile Details</a>
                   </li>
                     <li class="list-inline-item">
                             <a href="{% url 'edit_profile' %}">Edit Profile</a>
