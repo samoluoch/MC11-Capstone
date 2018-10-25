@@ -21,7 +21,7 @@ class EditProfileForm(forms.ModelForm):
 class DesignsForm(forms.ModelForm):
     class Meta:
         model = Designs
-        exclude = ['pub_date', 'profile', 'cost']
+        exclude = ['pub_date', 'profile', 'cost', 'product']
 
 
 

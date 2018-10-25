@@ -83,6 +83,8 @@ class Designs(models.Model):
     file_3 = models.FileField(upload_to='files/', blank=True)
     file_4 = models.FileField(upload_to='files/', blank=True)
     file_5 = models.FileField(upload_to='files/', blank=True)
+    product = models.FileField(upload_to='files/', default='Will be uploaded')
+
 
 
     def save_design(self):

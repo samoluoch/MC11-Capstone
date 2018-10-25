@@ -326,8 +326,23 @@
         </div>
 
 </div>
+        <div class="row">
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" class="well" style="background-color:;">
+                    <div class="well" style="background-color: #F7F7F7; text-align:center;">
+
+
+        {% if design.product %}
+            <h3>Final Design:<br> <a href="{{ design.product.url }}">Download</a></h3>
+        {% endif %}
+                    </div>
+
+
+                </div>
+</div>
         <!--end of order display-->
 {% endfor %}
+
+
 
 <style>
     bodys{
