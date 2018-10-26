@@ -30,6 +30,12 @@ DEBUG = True
 
 PAYPAL_TEST = True
 
+# #Braintree configurations
+# BRAINTREE_PRODUCTION = True  # We'll need this later to switch between the sandbox and live account
+# BRAINTREE_MERCHANT_ID = “7643563645”
+# BRAINTREE_PUBLIC_KEY = “8236969476`”
+# BRAINTREE_PRIVATE_KEY = “892361956976354”
+
 ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = 'home'
